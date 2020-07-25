@@ -71,7 +71,18 @@ class _SaveImageState extends State<SaveImage> {
         ),
         centerTitle: true,
       ),
-      body: ListView(
+      body: images.length == 0 ?
+      Center(
+          child: Text(
+            'No Image Selected',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.amber[300],
+              ),
+          )
+      ) :
+      ListView(
         children: images.map((photo) => imageCard(
           photo: photo,
           delete: () {
